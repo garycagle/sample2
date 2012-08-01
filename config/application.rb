@@ -10,11 +10,10 @@ require "sprockets/railtie"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+    Bundler.require(*Rails.groups(:assets => %w(development test )))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
-#config.assets.initialize_on_precompile = false  # advice from heroku for rake precompile asset error
 
 module Sample2
   class Application < Rails::Application
@@ -62,6 +61,8 @@ module Sample2
 
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    #config.assets.initialize_on_precompile = false  # advice from heroku for rake precompile asset error
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
